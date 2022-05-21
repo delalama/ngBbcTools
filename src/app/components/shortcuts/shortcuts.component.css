@@ -1,0 +1,8 @@
+.mat-list-item-content{
+    display: inherit !important;
+}
+
+
+.lower {
+    text-transform: lowercase;
+  }

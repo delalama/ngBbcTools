@@ -1,20 +1,17 @@
-<mat-toolbar class="mat-elevation-z8">
-  <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-  >
+<mat-toolbar class="mat-elevation-z10" *ngIf="mobile">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
 </mat-toolbar>
 
+
 <mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" >
-    <img
-      class="avatar mat-elevation-z8"
-      src="https://www.whitebearsolutions.com/wp-content/uploads/2019/04/artificial-intelligence-blur-close-up-546819-1-4200x2100.jpg"
-    />
+
+
+  <mat-sidenav #sidenav="matSidenav">
+    <img class="avatar mat-elevation-z8"
+      src="https://www.whitebearsolutions.com/wp-content/uploads/2019/04/artificial-intelligence-blur-close-up-546819-1-4200x2100.jpg" />
 
     <h4 class="name">MERC TOOLS</h4>
 
@@ -43,10 +40,26 @@
 
     <mat-divider></mat-divider>
 
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" class="closeMenuIcon"
+      (click)="closeLeftBar()" *ngIf="closeIcon">
+      <mat-icon>close</mat-icon>
+    </button>
+
+
   </mat-sidenav>
+
+
   <mat-sidenav-content>
+
     <div class="content">
+
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" class="openMenuIcon"
+        (click)="openLeftBar()" *ngIf="!closeIcon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
       <router-outlet></router-outlet>
     </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>

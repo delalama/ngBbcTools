@@ -15,6 +15,10 @@ import { RandomMrComponent } from './components/random-mr/random-mr.component';
 import { GitStepsComponent } from './components/git-steps/git-steps.component';
 import { ShortcutsComponent } from './components/shortcuts/shortcuts.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
+
 
 const routes: Route[] = [
   { path: "randomMr", component: RandomMrComponent },
@@ -33,7 +37,8 @@ const routes: Route[] = [
     ChecklistComponent,
     RandomMrComponent,
     GitStepsComponent,
-    ShortcutsComponent
+    ShortcutsComponent,
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,8 @@ const routes: Route[] = [
     MatIconModule,
     MatDividerModule,
     MatTableModule,
+    MatCardModule,
+    MatListModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],

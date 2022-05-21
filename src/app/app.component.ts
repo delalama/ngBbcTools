@@ -13,6 +13,21 @@ export class AppComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
+  mobile: boolean = false;
+  closeIcon: boolean = true;
+
+  closeLeftBar() {
+    this.sidenav.mode = 'over';
+    this.sidenav.close();
+    this.closeIcon = !this.closeIcon;
+  }
+  
+  openLeftBar() {
+    this.sidenav.mode = 'side';
+    this.sidenav.open();
+    this.closeIcon = !this.closeIcon;
+  }
+
   constructor(private observer: BreakpointObserver, private router: Router) {}
 
   ngAfterViewInit() {
@@ -22,9 +37,11 @@ export class AppComponent {
         if (res.matches) {
           this.sidenav.mode = 'over';
           this.sidenav.close();
+          this.mobile = true;
         } else {
           this.sidenav.mode = 'side';
           this.sidenav.open();
+          this.mobile = false;
         }
       });
 

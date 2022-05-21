@@ -1,1 +1,15 @@
-<p>random-mr works!</p>
+<div class="center">
+    <div>
+        <button mat-raised-button color="primary" (click)="name = getRandomDeveloper()">
+            RANDOM MR
+        </button>
+    </div>
+
+    <div>
+        <h3 class="animate-charcter"> Mr. {{name}} </h3>
+    </div>
+
+    <img [src]="randomGif | safeUrl" width="350" height="350">
+
+
+</div>
