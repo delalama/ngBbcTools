@@ -28,11 +28,13 @@ export class RandomMrComponent implements OnInit {
     return value;
   }
 
+  devString = "./../../../assets/gifs/giphy"; 
+  prodString = "./assets/gifs/giphy"; 
   
   getRandomGif() {
     var randomGifNum: String = this.getRndInteger(0,11).toString();
 
-    return "./../../../assets/gifs/giphy"+ randomGifNum + ".gif";
+    return this.prodString + randomGifNum + ".gif";
   }
 
   randomGif = "";

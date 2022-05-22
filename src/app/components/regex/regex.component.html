@@ -1,1 +1,28 @@
-<p>regex works!</p>
+<div class="center">
+    <h1>Regex</h1>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="card shadow ">
+                        <div class="card-body p-10">
+                            <br>
+                            <ul class="withoutDot">
+                                <li >
+                                    <div class="custom-control custom-checkbox">
+                                        <label>JSP SEARCH &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                        <input #regex name="regex" class="centerInput" type="text" value="{{title}} " for="jspRegex"
+                                            placeholder="JSP name"
+                                            (click)="cleanJspName()"
+                                            (change)="transformToJspSearchRegex(regex.value,'jspRegex')">
+                                        <label class="jspRegex" style="display:none">Copied</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

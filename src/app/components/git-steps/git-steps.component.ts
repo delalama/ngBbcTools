@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GitStepsComponent implements OnInit {
 
-
-
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +18,8 @@ export class GitStepsComponent implements OnInit {
 
 
   onSave(elem:any): void {
+    console.log(elem);
+
     navigator.clipboard.writeText(elem.code);
   }
   
