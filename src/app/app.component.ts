@@ -19,16 +19,18 @@ export class AppComponent {
   closeLeftBar() {
     this.sidenav.mode = 'over';
     this.sidenav.close();
-    this.closeIcon = !this.closeIcon;
+    setTimeout(() => {
+      this.closeIcon = !this.closeIcon;
+    }, 800);
   }
-  
+
   openLeftBar() {
     this.sidenav.mode = 'side';
     this.sidenav.open();
     this.closeIcon = !this.closeIcon;
   }
 
-  constructor(private observer: BreakpointObserver, private router: Router) {}
+  constructor(private observer: BreakpointObserver, private router: Router) { }
 
   ngAfterViewInit() {
     this.observer

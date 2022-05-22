@@ -10,8 +10,6 @@ import * as $ from 'jquery';
 
 export class ShortcutsComponent implements OnInit {
 
- 
-
   shortcutFamily: string = "";
   shortcutAction: string = "";
   shortcutData: string = "";
@@ -22,9 +20,14 @@ export class ShortcutsComponent implements OnInit {
     this.showRandomShortcut();
   }
 
+  firstTime = true;
 
   showRandomShortcut = () => {
-    $(".shortcutInfo").fadeOut();
+    if(!this.firstTime){
+      $(".shortcutInfo").fadeOut();
+    }else {
+      this.firstTime= false;
+    }
 
     setTimeout(() =>{
       const shortcutString = this.getRandomShortcut();
