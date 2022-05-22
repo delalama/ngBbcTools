@@ -1,118 +1,48 @@
-<div id="game02" class="centerGitSteps" style="display: none;">
-    <h1>GIT MERC steps</h1>
+<div>
+    <section class="todoapp">
+        <header class="header"  id="new-task">
+            <input #task class="new-todo" id="new-task-input" placeholder="Task link" autofocus (change)="addMercLink(task.value)" >
+            <button mat-raised-button color="primary" class="add" (click)="addTask()">Add</button>
+        </header>
+        <section class="main">
+            <table class="todo-list">
+                <tr *ngFor="let todo of todoTask" class="todo">
+                    <td class="fullWidth">
+                        <a href="{{todo.name}}" target="_blank">MERC_LINK</a>
+                        <!-- <mat-checkbox formControlName="pepperoni">{{todo.name}}</mat-checkbox> -->
+                    </td>
 
-    <table id="gitStepsTable" class="table">
-        <tr>
-            <td class="gitStepsTr">
-                <label class="gitLabel" for="Student">Development mercurius team</label>
-            </td>
-            <td>
-                <input class="centerInput" type="text" value="merge MERC-" id="mergeText">
-                <button type="button" class="btn btn-primary" onclick="gitStepsCopyText('mergeText')">Copy</button>
-            </td>
-        </tr>
-        <tr class="gitStepsTr">
-            <td>
-                <label class="gitLabel" for="Student">On terminal</label>
-            </td>
-            <td>
-                <input class="centerInput" type="text" value="git fetch -a -p" id="fetchText">
-                <button type="button" class="btn btn-primary" onclick="gitStepsCopyText('fetchText')">Copy</button>
-            </td>
-        </tr>
-        <tr class="gitStepsTr">
-            <td>
-                <label for="Student"></label>
-            </td>
-            <td>
-                <input class="centerInput" type="text" value="git rebase origin/master" id="rebaseText" />
-                <button type="button" class="btn btn-primary" onclick="gitStepsCopyText('rebaseText')">Copy</button>
-            </td>
-        </tr>
-        <tr class="gitStepsTr">
-            <td>
-                <label for="Student"></label>
-            </td>
-            <td>
-                <input class="centerInput" type="text" value="git push -f" id="forcePushText">
-                <button type="button" class="btn btn-primary" onclick="gitStepsCopyText('forcePushText')">Copy</button>
-            </td>
-        </tr>
-        <tr class="gitStepsTr">
-            <td>
-                <label class="gitLabel" for="Student">On GITLAB web interface</label>
-            </td>
-            <td>
-                <label class="centerInput" for="Student">PRESS MERGE BUTTON </label>
-            </td>
-        </tr>
-        <tr class="gitStepsTr">
-            <td>
-                <label class="gitLabel" for="Student">Development mercurius team</label>
-            </td>
-            <td><input class="centerInput" type="text" value="done" id="doneText">
-                <button type="button" class="btn btn-primary" onclick="gitStepsCopyText('doneText')">Copy</button>
-            </td>
-        </tr>
-        <td>
-            <label class="gitLabel" for="Student">On JIRA</label>
-        </td>
-        <td>
-            <label class="centerInput" for="Student">PRESS MERGE BUTTON </label>
-        </td>
+                    <td>
+                        <button mat-raised-button color="warn" class="alignRight"
+                            (click)="deleteTask()">X</button>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </section>
 
-    </table>
+    <section class="todoapp">
+        <header class="header">
+            <input class="new-todo" 
+                placeholder="What needs to be done?" 
+                autofocus 
+                (keypress)="addTodoName($event)"
+                >
+            <button mat-raised-button color="primary" class="add" (click)="addItem()">Add</button>
+        </header>
+        <section class="main">
+            <table class="todo-list">
+                <tr *ngFor="let todo of todoList" class="todo">
+                    <td class="fullWidth">
+                        <mat-checkbox formControlName="pepperoni">{{todo.name}}</mat-checkbox>
+                    </td>
 
-
-</div>
-<!-- end game02 -->
-
-
-<!-- game03 -->
-<div id="game03" class="center">
-    <table class="table">
-        <tr>
-            <button type="button" class="btn btn-primary" (click)="transformToCheckList()">To Check
-                List</button>
-        </tr>
-        <tr>
-
-        </tr>
-    </table>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mx-auto">
-                    <div class="card shadow ">
-                        <div class="card-body p-10">
-                            <div class="">
-                                <label class="taskLinkTitle">Task link: </label>
-                                <br>
-                                <input class="taskLink" type="text" value="" for="taskLink"
-                                (change)="changeTaskLink(this)">
-                            </div>
-
-                            <br>
-
-                            <a class="h4 mb-1">TASK STEPS</a>
-
-                            <button type="button" class="btn btn-primary" (click)="addCheck()"
-                                style="margin-left: 100px;">+</button>
-
-                            <ul class="task-list-group ">
-                                <li class="list-group-item task-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" id="customCheck0" type="checkbox">
-                                        <input class="centerInput" type="text" value="" for="customCheck0"
-                                        (change)="changeInputValue(this)">
-
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <td>
+                        <button mat-raised-button color="warn" class="alignRight"
+                            (click)="deleteTodo(todo.id)">X</button>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </section>
 </div>

@@ -17,6 +17,7 @@ import { ShortcutsComponent } from './components/shortcuts/shortcuts.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 
@@ -52,6 +53,7 @@ const routes: Route[] = [
     MatTableModule,
     MatCardModule,
     MatListModule,
+    MatCheckboxModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
-  styleUrls: ['./checklist.component.css']
+  styleUrls: ['./checklist.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ChecklistComponent implements OnInit {
 
@@ -13,110 +14,95 @@ export class ChecklistComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // STATIC 
-  groupNode = $('.task-list-group');
+  todoList: todo[] = [];
 
+  addItem = () => {
+    if (this.newTodoName.trim() == '') {
+    } else {
+      this.todoList.push({
+        id: this.todoList.length + 1, name: this.newTodoName
+      })
 
-  transform(element: any): void {
-    const className = $(element).attr("class");
+      console.log(this.todoList);
 
+      this.newTodoName = "";
 
-    var id = className!.charAt(className!.length - 1);
-
-    var inputElementToBeTransformed = $(element).find('input').toArray()[1];
-
-    var nodeText = $(inputElementToBeTransformed).attr('value');
-
-    var text = "<label class='cursor-pointer font-italic d-block custom-control-label' for='customCheck" + id + "'>" + nodeText + "</label>";
-
-    $(inputElementToBeTransformed).removeClass();
-
-    $(inputElementToBeTransformed).addClass('cursor-pointer font-italic d-block custom-control-label');
-
-    $(inputElementToBeTransformed).replaceWith(text);
-
-    console.log(element);
-
-    $(element).attr("class", "list-group-item rounded-" + id);
-
+      $('.new-todo').val('');
+    }
   }
 
-  transformToCheckList() {
-    var liElements = $('.task-list-group li').toArray();
+  newTodoName: string = "";
 
-    console.log(liElements);
+  addTodoName = (event: any) => {
+    console.log(event.key);
+    if (this.newTodoName.trim() + event.key == '' && event.key == "Enter") {
+      console.log('1a cond');
+    } else if(event.key == "Enter") {
+      this.addItem();
+    } else {
+      this.newTodoName += event.key;
+    }
+  }
 
-    liElements.forEach((element, indice, array) => {
-      const className = ($(element).attr("class") as string);
+  deleteTodo = (id: any) => {
 
-      console.log(className);
+    var index = this.todoList.map(function (item) {
+      return item.id
+    }).indexOf(id);
 
-      className.includes('rounded') ? null : this.transform(element);
-    });
-
+    this.todoList.splice(index, 1);
   }
 
 
-  toCheckItem(element: any) {
-    console.log(element);
+  // task
+  todoTask: task[] = [];
+
+  addMercLink = (name: any) => {
+
+    var finalLink: String = "";
+    
+    if(name.startsWith("MERC")) {
+      finalLink = 'https://jira.int.cipal.be/browse/' + name;
+    }
+
+    if(!isNaN(name)) {
+      finalLink = 'https://jira.int.cipal.be/browse/MERC-' + name;
+    }
+
+    if(name.startsWith("http")) {
+      finalLink = 'https://jira.int.cipal.be/browse/' + name;
+    }
+
+    this.todoTask.push(new task(finalLink));
+    
+    $("#new-task").hide();
   }
 
-  addCheck() {
-    var newNodeId = this.getNewNodeId();
+  deleteTask = () => {
+    this.todoTask = [];
+    $("#new-task").show();
+    $("#new-task-input").val('');
 
-    var newInputNode = this.getInputNode(newNodeId);
+  } 
 
-    $('.task-list-group').append(newInputNode);
+  
+  addTask = ( ) => {
+
   }
 
-  getNewNodeId() {
-    var newId = $('.task-list-group li').length;
+}
 
-    return newId;
+class todo {
+  id: number;
+  name: string;
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
   }
 
-  getInputNode(lastId: any) {
-    const id = lastId + 1;
-
-    var nodeString = "<li class='list-group-item task-" + id + "'" + "><div class='custom-control custom-checkbox'> <input class='custom-control-input' id='customCheck" + id + "'" + "type='checkbox'>" + "<input class='centerInput' type='text' onchange='changeInputValue(this)' value='' for='customCheck" + id + "'>" + "</div></li>";
-
-    return nodeString;
+}class task {
+  name: String;
+  constructor(name: String) {
+    this.name = name;
   }
-
-  changeInputValue(element: any) {
-    console.log('valor', element.value);
-
-    $(element).attr('value', element.value);
-  }
-
-  getMercName(text: any) {
-    var index = text.indexOf("MERC-");
-
-    return text.substring(index);
-  }
-
-  changeTaskLink(element: any) {
-
-    $('.taskLinkTitle').remove();
-
-    var nodeText = element.value;
-
-    var mercName = this.getMercName(nodeText);
-
-    var nodeToReplace = "<a href='" + nodeText + "' target='_blank' class='text-muted font-italic mb-4 taskLinkLabel taskLink' type='text' >" + mercName + "</a> <button class='btn btn-info buttonMarginLeft' type='button' onclick='copyTestLink()'>Copy</button>";
-
-    $(element).attr('value', element.value);
-
-    $(element).replaceWith(nodeToReplace);
-  }
-
-  copyTestLink(id: any) {
-
-    const selector = ".taskLink";
-
-    const newLocal = ($(selector).val() as string);
-
-    navigator.clipboard.writeText(newLocal);
-  }
-
 }
