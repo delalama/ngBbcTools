@@ -33,15 +33,17 @@ export class ChecklistComponent implements OnInit {
 
   newTodoName: string = "";
 
-  addTodoName = (event: any) => {
-    console.log(event.key);
-    if (this.newTodoName.trim() + event.key == '' && event.key == "Enter") {
+  addTodoName = (text: any) => {
+    if (this.newTodoName.trim() + text == '') {
       console.log('1a cond');
-    } else if(event.key == "Enter") {
-      this.addItem();
     } else {
-      this.newTodoName += event.key;
-    }
+      this.newTodoName += text;
+      console.log('2a cond');
+      this.addItem();
+    } 
+
+    console.log(this.newTodoName);
+
   }
 
   deleteTodo = (id: any) => {
@@ -61,6 +63,9 @@ export class ChecklistComponent implements OnInit {
 
     var finalLink: String = "";
     
+    console.log(name);
+
+
     if(name.startsWith("MERC")) {
       finalLink = 'https://jira.int.cipal.be/browse/' + name;
     }

@@ -131,15 +131,17 @@ label {
 
 .mat-checkbox-inner-container {
     margin: 10px;
-
     transform: scale(2);
-
     margin-right: 50px !important;
 }
 
 .mat-checkbox-checked .mat-checkbox-label {
     text-decoration: line-through;
     opacity: 0.5;
+    font-size: 1em;
+    line-height: 2rem;
+    white-space: inherit;
+    width: 60vw;
 }
 
 .selected {
@@ -149,4 +151,18 @@ label {
 .mat-checkbox-label {
     font-size: 2em;
     font-style: oblique;
+    font-size: 3em;
+    line-height: normal;
+    width: 100%;
+    line-height: 2rem;
+    /* border: 1px solid #019ed5; */
+    border-radius: 25px;
+    cursor: pointer;
+    display: block;
+    white-space: break-spaces;
+}
+
+
+.mat-checkbox-layout .mat-checkbox-label {
+    line-height: 50px;
 }

@@ -24,9 +24,10 @@
     <section class="todoapp">
         <header class="header">
             <input class="new-todo" 
+                #todoValue
                 placeholder="What needs to be done?" 
                 autofocus 
-                (keypress)="addTodoName($event)"
+                (change)="addTodoName(todoValue.value)"
                 >
             <button mat-raised-button color="primary" class="add" (click)="addItem()">Add</button>
         </header>
