@@ -2,6 +2,10 @@
     width: 20vw;
 }
 
+.gifImage {
+    width: 350px;
+    height: 350px;
+}
 
 .animate-charcter {
     text-transform: uppercase;
@@ -22,6 +26,7 @@
     font-size: 6em;
     padding-top: 0.7em;
     padding-bottom: 0.5em;
+    line-height: initial;
 }
 
 @keyframes textclip {
@@ -33,6 +38,10 @@
 
 
 @media only screen and (max-width: 800px) {
+    .gifImage {
+        width: 250px;
+        height: 250px;
+    }
     .animate-charcter {
         text-transform: uppercase;
         background-image: linear-gradient(-225deg,
@@ -52,5 +61,6 @@
         font-size: 4em;
         padding-top: 0.7em;
         padding-bottom: 0.5em;
+        line-height: initial;
     }
 }
