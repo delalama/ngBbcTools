@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -12,6 +12,9 @@ export class ChecklistComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
   }
 
   todoList: todo[] = [];
@@ -33,7 +36,7 @@ export class ChecklistComponent implements OnInit {
 
   newTodoName: string = "";
 
-  addTodoName = (text: any) => {
+  public addTodoName = (text: any) => {
     if (this.newTodoName.trim() + text == '') {
       console.log('1a cond');
     } else {
@@ -41,8 +44,6 @@ export class ChecklistComponent implements OnInit {
       console.log('2a cond');
       this.addItem();
     } 
-
-    console.log(this.newTodoName);
 
   }
 
@@ -104,8 +105,9 @@ class todo {
     this.id = id;
     this.name = name;
   }
+}
 
-}class task {
+class task {
   name: String;
   constructor(name: String) {
     this.name = name;
