@@ -28,10 +28,7 @@ export class RegexComponent implements OnInit {
         jspName = "detailUitgaandeFactuurAction";
     }
     
-    var regexResult = prevRegex + jspName;
-
-    console.log(regexResult);
-    console.log('title', this.title);
+    var regexResult = (prevRegex + jspName).trim();
 
     this.title = regexResult;
 
