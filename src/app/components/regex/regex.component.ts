@@ -21,14 +21,14 @@ export class RegexComponent implements OnInit {
 
   transformToJspSearchRegex = (element:any, id:any) => {
     var prevRegex = "\\/(\\w+\.jsp.*)[\\s\\S\\n].*";
-
+                      
     var jspName = element ;
 
     if(jspName ==="detailUitgaandeFacturenAction"){
         jspName = "detailUitgaandeFactuurAction";
     }
     
-    var regexResult = (prevRegex + jspName).trim();
+    var regexResult = (prevRegex + jspName).replace(' ','');
 
     this.title = regexResult;
 
