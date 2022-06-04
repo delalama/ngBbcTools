@@ -9,11 +9,12 @@
                             <ul class="withoutDot">
                                 <li >
                                     <div class="custom-control custom-checkbox">
-                                        <label>JSP SEARCH &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                        <input #regex name="regex" class="centerInput" type="text" value="{{title}} " for="jspRegex"
+                                        <input #regex name="regex" class="centerInput new-todo" type="text" value="{{title}} " for="jspRegex"
                                             placeholder="JSP name"
                                             (click)="cleanJspName()"
-                                            (change)="transformToJspSearchRegex(regex.value,'jspRegex')">
+                                            (change)="transformToJspSearchRegex(regex.value,'jspRegex')"
+                                             autofocus 
+                                        >
                                         <label class="jspRegex" style="display:none">Copied</label>
                                     </div>
                                 </li>

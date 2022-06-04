@@ -20,7 +20,7 @@ mat-sidenav {
 }
 
 .content {
-    height: calc(100vh );
+    height: calc(100vh);
     border-radius: 10px;
 
     padding-top: 16px;
@@ -46,10 +46,8 @@ mat-sidenav-container {
 }
 
 .avatar {
-    margin-top: 16px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+
+    border-radius: 20%;
 }
 
 .name {
@@ -76,5 +74,7 @@ mat-divider {
     top: 0;
 }
 
-
-.closeMenuIcon {}
+.leftBar {
+    display: flex;
+    flex-direction: column;
+}

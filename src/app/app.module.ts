@@ -19,15 +19,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { BannerComponent } from './components/banner/banner.component';
 
 
 const routes: Route[] = [
   { path: "randomMr", component: RandomMrComponent },
   { path: "gitSteps", component: GitStepsComponent },
-  { path: "checklist", component: ChecklistComponent },
+  { path: "checklist", component: ChecklistComponent, data: {reuseRoute: true} },
   { path: "regex", component: RegexComponent },
   { path: "shortcuts", component: ShortcutsComponent },
-  { path: "**", redirectTo: "home" }
+  { path: "**", component: BannerComponent  }
 ];
 
 
@@ -40,6 +41,7 @@ const routes: Route[] = [
     GitStepsComponent,
     ShortcutsComponent,
     SafeUrlPipe,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,

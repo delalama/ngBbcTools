@@ -7,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RandomMrComponent implements OnInit {
   lastSelectedFruit = "";
-  developerNames = ["Tim", "Jesús", "Raúl", "Guerman", "Jazzinto", "Rob", "Peter Daems", "Philip", "Jeroen"];
+  developerNames = ["Tim", "Jesús", "Raúl", "Jazzinto", "Rob", "Peter Daems", "Philip", "Jeroen"];
 
   link = "https://giphy.com/gifs/sad-baby-crying-jnQYWZ0T4mkhCmkzcn";
-  // './../../../assets/gifs/giphy"+{{randomGif}}+.gif' 
   
   constructor() { }
 
