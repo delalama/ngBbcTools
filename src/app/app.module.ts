@@ -20,11 +20,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { BannerComponent } from './components/banner/banner.component';
+import { GitCheatSheetComponent } from './components/git-cheat-sheet/git-cheat-sheet.component';
 
 
 const routes: Route[] = [
   { path: "randomMr", component: RandomMrComponent },
   { path: "gitSteps", component: GitStepsComponent },
+  { path: "gitCommands", component: GitCheatSheetComponent },
   { path: "checklist", component: ChecklistComponent, data: {reuseRoute: true} },
   { path: "regex", component: RegexComponent },
   { path: "shortcuts", component: ShortcutsComponent },
@@ -42,6 +44,7 @@ const routes: Route[] = [
     ShortcutsComponent,
     SafeUrlPipe,
     BannerComponent,
+    GitCheatSheetComponent,
   ],
   imports: [
     BrowserModule,

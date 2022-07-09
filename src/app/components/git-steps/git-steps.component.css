@@ -1,16 +1,18 @@
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
 
-  .mat-row:hover .mat-cell {
-    background-color: #cccccc;
-    cursor: pointer;
-    /* background-image: url(https://cdn.shopify.com/s/files/1/2830/0642/products/500627_3333x.png?v=1591122341); */
-  }
+.mat-row:hover .mat-cell {
+  background-color: #cccccc;
+  cursor: pointer;
+}
 
 .branchName {
   font-size: 3em;
-  text-align:center;
+  text-align: center;
   margin: 30px;
 
+  color: #002b5c;
+  font-family: Roboto, cursive;
+  font-weight: 700;
 }

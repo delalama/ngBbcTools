@@ -1,55 +1,56 @@
 <div class="content">
-    
-    <td>
-        <button mat-raised-button color="warn" class="alignRight"
-            (click)="cleanTask()">cleanTask</button>
-    </td>
 
-    <section class="todoapp">
-        <header class="header"  id="new-task">
-            <input #task class="new-todo" id="new-task-input" placeholder="Task link" autofocus (change)="addMercLink(task.value)" >
-            <button mat-raised-button color="primary" class="add" (click)="addTask()">Add</button>
-        </header>
-        <section class="main">
-            <table class="todo-list">
-                <tr *ngFor="let todo of todoTask" class="todo">
-                    <td class="fullWidth">
-                        <a href="{{todo.name}}" target="_blank">MERC_LINK</a>
-                        <!-- <mat-checkbox formControlName="pepperoni">{{todo.name}}</mat-checkbox> -->
-                    </td>
+  <button mat-raised-button color="warn" class="alignRight"
+          (click)="cleanTask()">cleanTask
+  </button>
 
-                    <td>
-                        <button mat-raised-button color="warn" class="alignRight"
-                            (click)="deleteTask()">X</button>
-                    </td>
-                </tr>
-            </table>
-        </section>
+  <section class="todoapp">
+    <header class="header" id="new-task">
+      <input #task class="new-todo" id="new-task-input" placeholder="Task link" autofocus (change)="addMercLink(task.value)">
+      <button mat-raised-button color="primary" class="add" (click)="addTask()">Add</button>
+    </header>
+    <section class="main">
+      <table class="todo-list">
+        <tr *ngFor="let todo of todoTask" class="todo">
+          <td class="fullWidth">
+            <a href="{{todo.name}}" target="_blank">MERC_LINK</a>
+            <!-- <mat-checkbox formControlName="pepperoni">{{todo.name}}</mat-checkbox> -->
+          </td>
+
+          <td>
+            <button mat-raised-button color="warn" class="alignRight"
+                    (click)="deleteTask()">X
+            </button>
+          </td>
+        </tr>
+      </table>
     </section>
+  </section>
 
-    <section class="todoapp">
-        <header class="header">
-            <input class="new-todo" 
-                #todoValue
-                placeholder="What needs to be done?" 
-                autofocus 
-                (change)="addTodoName(todoValue.value)"
-                >
-            <button mat-raised-button color="primary" class="add" (click)="addItem()">Add</button>
-        </header>
-        <section class="main">
-            <table class="todo-list">
-                <tr *ngFor="let todo of todoList" class="todo">
-                    <td class="fullWidth">
-                        <mat-checkbox formControlName="pepperoni">{{todo.name}}</mat-checkbox>
-                    </td>
+  <section class="todoapp">
+    <header class="header">
+      <input class="new-todo"
+             #todoValue
+             placeholder="What needs to be done?"
+             autofocus
+             (change)="addTodoName(todoValue.value)"
+      >
+      <button mat-raised-button color="primary" class="add" (click)="addItem()">Add</button>
+    </header>
+    <section class="main">
+      <table class="todo-list">
+        <tr *ngFor="let todo of todoList" class="todo">
+          <td class="fullWidth">
+            <mat-checkbox formControlName="pepperoni">{{todo.name}}</mat-checkbox>
+          </td>
 
-                    <td>
-                        <button mat-raised-button color="warn" class="alignRight"
-                            (click)="deleteTodo(todo.id)">X</button>
-                    </td>
-                </tr>
-            </table>
-        </section>
+          <td>
+            <button mat-raised-button color="warn" class="alignRight"
+                    (click)="deleteTodo(todo.id)">X
+            </button>
+          </td>
+        </tr>
+      </table>
     </section>
+  </section>
 </div>

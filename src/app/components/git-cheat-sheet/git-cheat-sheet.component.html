@@ -1,0 +1,23 @@
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="task">
+      <th mat-header-cell *matHeaderCellDef width="50%" width="20%">TASK</th>
+      <td mat-cell *matCellDef="let element"> {{element.task}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="notes">
+      <th mat-header-cell *matHeaderCellDef width="40%">NOTES</th>
+      <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="command">
+      <th mat-header-cell *matHeaderCellDef width="40%">COMMAND</th>
+      <td mat-cell *matCellDef="let element"> {{element.command}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row [ngClass]="color" (click)="onSave(row)" *matRowDef="let row;
+          columns: displayedColumns;"></tr>
+  </table>
+</div>

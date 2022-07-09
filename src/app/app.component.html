@@ -1,7 +1,7 @@
 <mat-toolbar class="mat-elevation-z10" *ngIf="mobile">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    <mat-icon *ngIf="!sidenav.opened"> menu</mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close</mat-icon>
   </button>
 </mat-toolbar>
 
@@ -11,52 +11,54 @@
   <mat-sidenav #sidenav="matSidenav">
     <div class="leftBar">
       <img class="avatar mat-elevation-z8"
-        src="https://www.whitebearsolutions.com/wp-content/uploads/2019/04/artificial-intelligence-blur-close-up-546819-1-4200x2100.jpg" />
+           src="https://www.whitebearsolutions.com/wp-content/uploads/2019/04/artificial-intelligence-blur-close-up-546819-1-4200x2100.jpg"/>
 
       <h4 class="name">MERC TOOLS</h4>
-        <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="/home">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-        </button>
-        <button mat-button class="menu-button" routerLink="/gitSteps">
-          <mat-icon>call_merge</mat-icon>
-          <span>GIT steps</span>
-        </button>
-        <button mat-button class="menu-button" routerLink="/randomMr">
-          <mat-icon>person</mat-icon>
-          <span>Random MR</span>
-        </button>
-        <button mat-button class="menu-button" routerLink="/checklist">
-          <mat-icon>check_circle_outline</mat-icon>
-          <span>Checklist</span>
-        </button>
-        <button mat-button class="menu-button" routerLink="/regex">
-          <mat-icon>find_in_page</mat-icon>
-          <span>Regex</span>
-        </button>
-        <button mat-button class="menu-button" routerLink="/shortcuts">
-          <mat-icon>code</mat-icon>
-          <span>Shortcuts</span>
-        </button>
-        <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLink="/home">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/randomMr">
+        <mat-icon>person</mat-icon>
+        <span>Random MR</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/checklist">
+        <mat-icon>check_circle_outline</mat-icon>
+        <span>Checklist</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/regex">
+        <mat-icon>find_in_page</mat-icon>
+        <span>Regex</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/shortcuts">
+        <mat-icon>code</mat-icon>
+        <span>Shortcuts</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/gitSteps">
+        <mat-icon>call_merge</mat-icon>
+        <span>GIT steps</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/gitCommands">
+        <mat-icon>call_merge</mat-icon>
+        <span>Git Commands</span>
+      </button>
+      <mat-divider></mat-divider>
 
-
-        <button mat-button aria-label="Example icon button with a vertical three dot icon" class="closeMenuIcon"
-          (click)="closeLeftBar()" *ngIf="closeIcon">
-          <mat-icon>close</mat-icon>
-        </button>
+      <button mat-button aria-label="Example icon button with a vertical three dot icon" class="closeMenuIcon"
+              (click)="closeLeftBar()" *ngIf="closeIcon">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
 
   </mat-sidenav>
-
 
   <mat-sidenav-content>
 
     <div class="content">
       <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" class="openMenuIcon"
-        (click)="openLeftBar()" *ngIf="!closeIcon">
+              (click)="openLeftBar()" *ngIf="!closeIcon">
         <mat-icon>more_vert</mat-icon>
       </button>
 
