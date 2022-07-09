@@ -1,6 +1,9 @@
 # BbcToolsNg
 Project to fast some small development tasks.
 
+## serve
+ng serve
+
 ## deploy to GPages
 ng deploy --base-href=/ngBbcTools/
 
